@@ -16,6 +16,7 @@ import com.mysite.sbbshopapi.dto.Product;
 @Service
 public class NaverShoppingService {
 
+//	private String clientId = "YOUR_CLIENT_ID"
     @Value("${naver.client.id}")
     private String clientId;
 
@@ -29,6 +30,7 @@ public class NaverShoppingService {
         headers.set("X-Naver-Client-Secret", clientSecret);
         HttpEntity<String> entity = new HttpEntity<>(headers);
 
+//      RestTemplate : API 요청용 DTO라고 생각하자.
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<Map> response = restTemplate.exchange(
                 url + "?query=" + query, HttpMethod.GET, entity, Map.class
